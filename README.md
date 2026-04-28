@@ -1,6 +1,4 @@
-# Job Aggregator Project
-
-Ce projet est une application de type "job aggregator" permettant de collecter, normaliser et stocker des offres d'emploi provenant de différentes sources. Il est composé d'un backend Node.js (avec Prisma pour la gestion de la base de données) et de scripts Python pour la collecte et la transformation des données.
+# Rode1Job - Agrégateur d'offres d'emploi
 
 ## Structure du projet
 
