@@ -5,7 +5,7 @@ export default function NavBar() {
   return (
     <div className="navbar">
       <div className="logo">
-        <img src="src/assets/logo_1.png" alt="logo"></img>
+        <img src="/logo_1.png" alt="logo"></img>
         <span>Road1Job</span>
       </div>
       <form action="get">
@@ -16,7 +16,7 @@ export default function NavBar() {
         ></input>
       </form>
       <div className="nav-right">
-        <a href="/Login_Page">Se connecter</a>
+        <a href="/Login">Se connecter</a>
         <div className="avatar">
           <FontAwesomeIcon
             icon={faUser}
