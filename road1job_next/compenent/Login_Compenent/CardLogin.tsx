@@ -1,4 +1,5 @@
 
+
 type Childprops = {
     setLogin: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -7,8 +8,7 @@ export default function CardLogin({setLogin}: Childprops) {
     return(      
     <div className="auth-right">
         <div className="form-box">
-          <h1>Se connecter</h1>
-
+          <h1 className="text-xl font-bold">Se connecter</h1>
           <div className="input-group">
             <label>Email</label>
             <input type="email"></input>
@@ -24,8 +24,8 @@ export default function CardLogin({setLogin}: Childprops) {
           </a>
 
           <div className="actions">
-            <button className="google">Se connecter avec Google</button>
-            <button className="primary">Se connecter</button>
+            <button className="google text-sm">Se connecter avec Google</button>
+            <button className="primary text-sm">Se connecter</button>
           </div>
         </div>
       </div>)

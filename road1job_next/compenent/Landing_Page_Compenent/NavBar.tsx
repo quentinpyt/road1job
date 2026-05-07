@@ -12,7 +12,7 @@ export default function NavBar() {
         <input
           type="text"
           placeholder="Cherchez un thème, un mot-clé..."
-          className="nav-search"
+          className="nav-search text-black text-start"
         ></input>
       </form>
       <div className="nav-right">

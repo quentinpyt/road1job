@@ -13,16 +13,17 @@ export default function Header() {
         <h1>Trouve ton chemin dans le développement</h1>
 
         <div className="search-box">
-          <form action="get">
+          <form action="get" className="flex">
             <input
               type="text"
               placeholder="Cherchez un thème, un mot-clé, une entreprise..."
+              className="text-black"
             ></input>
-            <button type="submit">
+            <button type="submit" >
               {" "}
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
-                style={{ width: "50%" }}
+                className="w-9 text-center"
               />{" "}
             </button>
           </form>
