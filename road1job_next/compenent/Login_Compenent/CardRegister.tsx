@@ -8,7 +8,7 @@ export default function CardRegister({setLogin}: Childprops) {
     return (
               <div className="auth-right">
         <div className="form-box">
-          <h1 className="text-bold">S'inscrire</h1>
+          <h1 className="text-xl font-bold">S'inscrire</h1>
 
           <div className="row">
             <div className="input-group">

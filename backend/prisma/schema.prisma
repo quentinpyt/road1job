@@ -20,10 +20,16 @@ model Role {
 
 model User {
   id           Int     @id @default(autoincrement()) // ID de l'utilisateur
-
   username     String  @unique // Nom d'utilisateur unique
   email        String  @unique  // Adresse e-mail unique
   passwordHash String // Hash du mot de passe pour la sécurité
+  curriculum   String? // Lien vers le CV de l'utilisateur (optionnel)
+  address      String? // Adresse de l'utilisateur (optionnel)
+  firstName    String? // Prénom de l'utilisateur (optionnel)
+  lastName     String? // Nom de famille de l'utilisateur (optionnel)
+  age          Int?    // Âge de l'utilisateur (optionnel)
+  description  String? // Description ou bio de l'utilisateur (optionnel)
+  preferences  String? // Préférences de l'utilisateur (optionnel)
   roleId       Int  // Clé étrangère vers le rôle de l'utilisateur
   role         Role    @relation(fields: [roleId], references: [id]) // Relation avec le modèle Role
   createdAt    DateTime @default(now())
