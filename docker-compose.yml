@@ -1,0 +1,30 @@
+
+services:
+  db:
+      image: postgres:latest
+      environment:
+        POSTGRES_USER: admin
+        POSTGRES_PASSWORD: password
+        POSTGRES_DB: mydb
+      ports:
+        - "5432:5432"
+  backend:
+      build: ./Backend
+      ports:
+        - "3001:3001"
+      volumes:
+        - ./Backend:/app
+      env_file:
+        - ./Backend/.env
+      depends_on:
+        - db
+  frontend:
+      build: ./road1job_next
+      ports:
+        - "5111:5111"
+      volumes:
+        - ./road1job_next:/app
+      env_file:
+        - ./road1job_next/.env
+      depends_on:
+        - backend
