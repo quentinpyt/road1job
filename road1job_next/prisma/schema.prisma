@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  passwordhash  String
+  name      String?
+  surname   String?
+  age       Int?
+  address   String?
+  Schools    String?
+  Projects  String?
+  Technologies String?
+  Skills    String?
+  createdAt DateTime @default(now())
+}
+model Job {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  company     String
+  type        String
+  experience  Int?
+  skills      String[]
+  salary      Salary?
+  analytics   Analytics[]
+  geolocation GeoLocation?
+  createdAt   DateTime @default(now())
+  
+}
+
+model Analytics{
+  id  Int @id @default(autoincrement())
+  applications	Int @default(0) 
+  applyBtnClicks Int  @default(0)
+  atsApplications	Int  @default(0)
+  cta	Int  @default(0)
+  ctr	Int  @default(0)  
+  remoteApplications	Int  @default(0)
+  totalApplications	Int  @default(0)
+  updatedAt	DateTime  @default(now()) 
+  visitsCount Int  @default(0)
+  jobId Int @unique
+  job Job @relation(fields: [jobId], references: [id],onDelete: Cascade) 
+}
+
+model GeoLocation {
+  id        Int      @id @default(autoincrement())
+  latitude  Float @default(0)
+  longitude Float @default(0)
+  city      String?
+  country   String?
+  jobId Int @unique
+  jobs      Job @relation(fields: [jobId], references: [id],onDelete: Cascade)
+}
+
+model Salary {
+  id        Int      @id @default(autoincrement())
+  max    Int
+  min    Int
+  currency String?
+  jobId Int @unique
+  job      Job @relation(fields: [jobId], references: [id],onDelete: Cascade)
+}
