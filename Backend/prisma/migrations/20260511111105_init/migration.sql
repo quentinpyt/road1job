@@ -24,7 +24,6 @@ CREATE TABLE "Job" (
     "company" TEXT NOT NULL,
     "type" TEXT NOT NULL,
     "experience" INTEGER,
-    "skills" TEXT[],
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Job_pkey" PRIMARY KEY ("id")
@@ -70,6 +69,16 @@ CREATE TABLE "Salary" (
     CONSTRAINT "Salary_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "Skills" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT,
+    "value" INTEGER,
+    "jobId" INTEGER NOT NULL,
+
+    CONSTRAINT "Skills_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
@@ -82,6 +91,9 @@ CREATE UNIQUE INDEX "GeoLocation_jobId_key" ON "GeoLocation"("jobId");
 -- CreateIndex
 CREATE UNIQUE INDEX "Salary_jobId_key" ON "Salary"("jobId");
 
+-- CreateIndex
+CREATE UNIQUE INDEX "Skills_jobId_key" ON "Skills"("jobId");
+
 -- AddForeignKey
 ALTER TABLE "Analytics" ADD CONSTRAINT "Analytics_jobId_fkey" FOREIGN KEY ("jobId") REFERENCES "Job"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
@@ -90,3 +102,6 @@ ALTER TABLE "GeoLocation" ADD CONSTRAINT "GeoLocation_jobId_fkey" FOREIGN KEY ("
 
 -- AddForeignKey
 ALTER TABLE "Salary" ADD CONSTRAINT "Salary_jobId_fkey" FOREIGN KEY ("jobId") REFERENCES "Job"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Skills" ADD CONSTRAINT "Skills_jobId_fkey" FOREIGN KEY ("jobId") REFERENCES "Job"("id") ON DELETE CASCADE ON UPDATE CASCADE;

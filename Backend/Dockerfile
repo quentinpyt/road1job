@@ -22,4 +22,4 @@ RUN npx prisma generate
 EXPOSE 3001
 
 # Lancer le serveur
-CMD ["npx","tsx","prisma/server.js"]
+CMD ["npm", "run", "dev"]
