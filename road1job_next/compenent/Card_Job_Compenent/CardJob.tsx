@@ -7,19 +7,19 @@ export default  function CardJob(props: any) {
       <div className="divider"></div>
 
       <p className="company">{props.company}</p>
-      <p className="location">Paris - Télétravail</p>
+      <p className="location">{props.geolocation?.city || "Non spécifié"} - {props.geolocation?.country=="none" ? "" : props.geolocation?.country}</p>
       <p className="contract">Contrat : CDI</p>
 
       <div className="meta">
-        <p>Niveau : 1 an</p>
-        <p>Salaire : 30k - 50k€</p>
+        <p>Niveau : {props.job?.level== null ? "Dev Junior" : props.job?.level}</p>
+        <p>Salaire : {props.salary?.min || "Non spécifié"} - {props.salary?.max || "Non spécifié"} {props.salary?.currency=="none" ? "" : props.salary?.currency}</p>
       </div>
-
+      <p>Skills:</p>
       <div className="tags">
-        <span>React</span>
-        <span>JS</span>
-        <span>Python</span>
-        <span>Docker</span>
+        
+        {props.skills?.map((skill: any) => (
+          <span key={skill.id} className="tag">{skill.name}</span>
+        ))}
       </div>
     </div>
     </div>)

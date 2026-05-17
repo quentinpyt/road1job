@@ -6,7 +6,11 @@ export default async function getAllJob(app: FastifyInstance) {
     try {
       const jobs = await prisma.job.findMany({
         take: 12,
-      });
+        include: {
+          salary: true,
+          skills: true,
+          geolocation: true,
+      }});
       return reply.send(jobs);
     } catch (e: any) {
       console.log("error get " + e.message);

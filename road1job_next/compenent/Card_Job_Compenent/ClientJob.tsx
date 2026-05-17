@@ -7,7 +7,7 @@ import getAllJobs from "@/app/api/getalljobs"
 export default function ClientJobs() {
   const [visible, setVisible] = useState(3)
   const [jobs, setJobs] = useState([])
-  
+
 // utilise useEffect pour récupérer les données des jobs depuis l'API lorsque le composant est monté
   useEffect(() => {
     async function fetchJobs() {
@@ -21,12 +21,24 @@ export default function ClientJobs() {
     id: string
     name: string
     company: string
+    skills: string[]
+    salary: {
+      min: number
+      max: number
+    }
+    geolocation: {
+      city: string
+      country: string
+    }
+     job: {
+      level: string
+    }
   };
   return (
     <>
         <div className="offers-grid">
           {jobs.slice(0, visible).map((job: job) => (
-            <CardJob key={job.id}  name={job.name} company={job.company} />
+            <CardJob key={job.id}  name={job.name} company={job.company} skills={job.skills} salary={job.salary} geolocation={job.geolocation} job={job.job} />
           ))}
 
         </div>
