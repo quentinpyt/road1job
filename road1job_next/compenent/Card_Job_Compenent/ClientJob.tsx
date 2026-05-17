@@ -3,9 +3,11 @@
 import { useState,useEffect } from "react"
 import CardJob from "../Card_Job_Compenent/CardJob"
 import getAllJobs from "@/app/api/getalljobs"
+
 export default function ClientJobs() {
   const [visible, setVisible] = useState(3)
   const [jobs, setJobs] = useState([])
+  
 // utilise useEffect pour récupérer les données des jobs depuis l'API lorsque le composant est monté
   useEffect(() => {
     async function fetchJobs() {
