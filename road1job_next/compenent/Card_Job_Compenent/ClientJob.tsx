@@ -22,6 +22,8 @@ export default function ClientJobs() {
     name: string
     company: string
     skills: string[]
+    type: string
+    experience: string
     salary: {
       min: number
       max: number
@@ -30,15 +32,14 @@ export default function ClientJobs() {
       city: string
       country: string
     }
-     job: {
-      level: string
-    }
+
+    
   };
   return (
     <>
         <div className="offers-grid">
           {jobs.slice(0, visible).map((job: job) => (
-            <CardJob key={job.id}  name={job.name} company={job.company} skills={job.skills} salary={job.salary} geolocation={job.geolocation} job={job.job} />
+            <CardJob key={job.id}  name={job.name} company={job.company} skills={job.skills} salary={job.salary} geolocation={job.geolocation} job={job.experience} type={job.type} />
           ))}
 
         </div>
