@@ -11,6 +11,7 @@ import sessionPlugin from "./plugins/session";
 import passportGoogle from "./plugins/passportGoogle";
 import logingoogle from "./routes/logingoogle";
 import callback from "./routes/callback";
+import getAllJob from "./routes/getalljob";
 const app = Fastify();
 
 await app.register(cors, {
@@ -33,10 +34,14 @@ await app.register(logingoogle);
 await app.register(callback);
 
 // --- Login route ---
-app.register(authLogin);
+await app.register(authLogin);
 
 // --- Registration route ---
-app.register(authRegister);
+await app.register(authRegister);
+
+// --- Get all jobs route ---
+await app.register(getAllJob);
+
 
 app.listen({ port: 3001, host: "0.0.0.0" }, (err, address) => {
   if (err) {

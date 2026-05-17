@@ -1,12 +1,12 @@
 
 
-export default function CardJob() {
+export default  function CardJob(props: any) {
     return(<div>
             <div className="offer-card">
-      <h3>Développeur Fullstack</h3>
+      <h3>{props.name}</h3>
       <div className="divider"></div>
 
-      <p className="company">WeLoveDevs</p>
+      <p className="company">{props.company}</p>
       <p className="location">Paris - Télétravail</p>
       <p className="contract">Contrat : CDI</p>
 
