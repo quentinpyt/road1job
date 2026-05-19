@@ -1,0 +1,77 @@
+[
+  {
+    "id": "1",
+    "title": "Développeur Full Stack React/Node.js",
+    "company": "TechCorp Solutions",
+    "location": "Paris, France",
+    "salary": {
+      "min": 45000,
+      "max": 60000,
+      "currency": "€"
+    },
+    "description": "Nous cherchons un développeur Full Stack expérimenté pour rejoindre notre équipe dynamique.",
+    "skills": ["React", "Node.js", "TypeScript", "PostgreSQL"],
+    "level": "Senior",
+    "type": "CDI"
+  },
+  {
+    "id": "2",
+    "title": "Développeur Frontend React",
+    "company": "Digital Innovate",
+    "location": "Lyon, France",
+    "salary": {
+      "min": 38000,
+      "max": 50000,
+      "currency": "€"
+    },
+    "description": "Rejoignez une startup en croissance pour créer des interfaces modernes et performantes.",
+    "skills": ["React", "Tailwind CSS", "JavaScript", "API REST"],
+    "level": "Confirmé",
+    "type": "CDI"
+  },
+  {
+    "id": "3",
+    "title": "Développeur Backend Python",
+    "company": "DataStream Inc",
+    "location": "Bordeaux, France",
+    "salary": {
+      "min": 40000,
+      "max": 55000,
+      "currency": "€"
+    },
+    "description": "Développez des solutions backend scalables pour notre plateforme de streaming de données.",
+    "skills": ["Python", "Django", "PostgreSQL", "Docker"],
+    "level": "Intermédiaire",
+    "type": "CDI"
+  },
+  {
+    "id": "4",
+    "title": "Développeur Full Stack Junior",
+    "company": "StartupXYZ",
+    "location": "Toulouse, France",
+    "salary": {
+      "min": 28000,
+      "max": 36000,
+      "currency": "€"
+    },
+    "description": "Premiers pas dans votre carrière de développeur au sein d'une jeune équipe bienveillante.",
+    "skills": ["JavaScript", "React", "Node.js", "Git"],
+    "level": "Junior",
+    "type": "CDI"
+  },
+  {
+    "id": "5",
+    "title": "DevOps Engineer",
+    "company": "CloudPlatform",
+    "location": "Nantes, France",
+    "salary": {
+      "min": 50000,
+      "max": 65000,
+      "currency": "€"
+    },
+    "description": "Gérez notre infrastructure cloud et optimisez nos déploiements.",
+    "skills": ["Kubernetes", "Docker", "AWS", "Terraform"],
+    "level": "Senior",
+    "type": "CDI"
+  }
+]
