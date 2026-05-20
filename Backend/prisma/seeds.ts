@@ -42,12 +42,12 @@ async function main() {
       },
       salary:{
         create: {
-          min: item.salary?.min?? 0,
-          max: item.salary?.max?? 0,
-          currency: item.salary?.currency?? "none",
+          min: item.details?.salary?.min?? 0,
+          max: item.details?.salary?.max?? 0,
+          currency: item.details?.salary?.currency?? "none",
       }
     }
-    }});
+    }})};
   }
 
   //   const job = await prisma.job.findMany()
@@ -69,7 +69,7 @@ async function main() {
   //  }
 
   // }
-}
+
 
 main()
   .then(async () => {
