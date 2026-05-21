@@ -39,7 +39,7 @@ export default function DashboardPage() {
             </div>
 
             {/* Column 2: Job Detail */}
-            <div className="w-3/5 flex flex-col min-w-0 overflow-hidden">
+            <div className="w-3/5 flex flex-col bg-[#1a1433] min-w-0 overflow-hidden">
               <JobDetail job={selectedJob} onClose={() => setSelectedJob(null)} />
             </div>
           </main>

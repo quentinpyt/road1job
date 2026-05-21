@@ -22,8 +22,8 @@ interface JobDetailProps {
 export function JobDetail({ job, onClose }: JobDetailProps) {
   if (!job) {
     return (
-      <div className="flex-1 bg-gray-50 border-l border-gray-200 p-8 flex items-center justify-center">
-        <p className="text-gray-500 text-center">Sélectionnez une offre d'emploi pour voir les détails</p>
+      <div className="flex-1 bg-[#1a1433] border-l border-gray-200 p-8 flex items-center justify-center">
+        <p className="text-white-500 text-center">Sélectionnez une offre d'emploi pour voir les détails</p>
       </div>
     )
   }

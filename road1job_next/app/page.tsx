@@ -10,7 +10,7 @@ export default function Home() {
       <Header />
       <Article
         title="C'est quoi Road1Job ?"
-        text="Nous proposons une large gamme d'opportunités, maison loupes l'organisation rendant vos recherches !"
+        text="Simplifiez votre recherche d'emploi grâce à une plateforme pensée pour les développeurs et les étudiants tech."
         sectionClass="articleRight"
         divClass="about-text"
         imgClass="about-img"
