@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import ProfileImage from "@/public/logo_1.png"
+import ProfileImage from "@/public/logo_1.png";
 import {
   Briefcase,
   Settings,
@@ -10,8 +10,8 @@ import {
   ChevronDown,
   Home,
   MoreHorizontal,
-} from "lucide-react"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+} from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import {
   Sidebar,
   SidebarContent,
@@ -25,16 +25,16 @@ import {
   SidebarMenuSubItem,
   SidebarSeparator,
   useSidebar,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 
 export function AppSidebar() {
-  const { state } = useSidebar()
+  const { state } = useSidebar();
 
   const navItems = [
     {
@@ -50,14 +50,14 @@ export function AppSidebar() {
       title: "Map",
       icon: MapPin,
     },
-  ]
+  ];
 
   const settingsItems = [
     {
       title: "Paramètres",
       icon: Settings,
     },
-  ]
+  ];
 
   return (
     <Sidebar className="w-64 bg-white">
@@ -65,7 +65,6 @@ export function AppSidebar() {
         <div className="flex items-center gap-2 px-2 py-4">
           <div className="flex items-center justify-center text-white font-bold">
             <img alt="logo" className="h-15" src={ProfileImage.src} />
-            
           </div>
           <div className="flex flex-col gap-0.5 flex-1">
             <span className="font-bold text-xl">Road1Job</span>
@@ -147,5 +146,5 @@ export function AppSidebar() {
         </SidebarMenu>
       </SidebarFooter>
     </Sidebar>
-  )
+  );
 }

@@ -1,8 +1,7 @@
-import Header from "../compenent/Landing_Page_Compenent/header";
-import Article from "../compenent/Landing_Page_Compenent/Article";
-import SectionJob from "../compenent/Landing_Page_Compenent/SectionJob";
-import Footer from "../compenent/Landing_Page_Compenent/Footer";
-
+import Header from "../components/Landing_Page_Compenent/header";
+import Article from "../components/Landing_Page_Compenent/Article";
+import SectionJob from "../components/Landing_Page_Compenent/SectionJob";
+import Footer from "../components/Landing_Page_Compenent/Footer";
 
 export default function Home() {
   return (
