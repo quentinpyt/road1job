@@ -45,7 +45,7 @@ export default function ClientJobs() {
         </div>
       {
         visible < jobs.length && (
-          <button onClick={() => setVisible(visible + 3)}>
+          <button className="mt-4 text-white font-bold underline cursor-pointer" onClick={() => setVisible(visible + 3)}>
             Voir plus
           </button>
         )
