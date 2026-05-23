@@ -1,6 +1,6 @@
 import { prisma } from "../lib/prisma";
 import fs from "fs";
-
+import scrap from "../src/scraping/scraping";
 async function main() {
   const data = JSON.parse(fs.readFileSync("data/data.json", "utf-8"));
   for (const item of data) {
@@ -8,7 +8,8 @@ async function main() {
       data: {
         name: item.title,
         company: item.smallCompany.companyName,
-        description: item.descriptionPreview,
+        descriptionmini: item.descriptionPreview,
+        description: String(await scrap(item.seoAlias)),
         type: item.title,
         experience: item.requiredExperience,
         skills: {

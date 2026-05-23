@@ -25,7 +25,8 @@ model User {
 model Job {
   id          Int          @id @default(autoincrement())
   name        String
-  description String
+  descriptionmini String
+  description   String
   company     String
   type        String
   experience  Int?
