@@ -29,7 +29,7 @@ model Job {
   company     String
   type        String
   experience  Int?
-  skills      Skills? 
+  skills      Skills[]
   createdAt   DateTime     @default(now())
   analytics   Analytics?
   geolocation GeoLocation?
@@ -41,8 +41,8 @@ model Analytics {
   applications       Int      @default(0)
   applyBtnClicks     Int      @default(0)
   atsApplications    Int      @default(0)
-  cta                Int      @default(0)
-  ctr                Int      @default(0)
+  cta                Float    @default(0)
+  ctr                Float      @default(0)
   remoteApplications Int      @default(0)
   totalApplications  Int      @default(0)
   updatedAt          DateTime @default(now())
@@ -74,6 +74,6 @@ model Skills {
   id        Int      @id @default(autoincrement())
   name      String?
   value     Int?
-  jobId     Int      @unique
+  jobId     Int      
   job       Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
 }

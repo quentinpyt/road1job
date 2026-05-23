@@ -1,4 +1,6 @@
 
+"use client";
+
 type Childprops = {
     setLogin: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -32,13 +34,17 @@ export default function CardRegister({setLogin}: Childprops) {
             <input type="password"></input>
           </div>
 
-          <a className="link" onClick={() => setLogin(true)}>
+          <button type="button" className="link" onClick={() => setLogin(true)}>
             J'ai déjà un compte
-          </a>
+          </button>
 
           <div className="actions">
-            <button className="google text-sm">S'inscrire avec Google</button>
-            <button className="primary text-sm">S'inscrire</button>
+            <button type="button" className="google text-sm">
+              S'inscrire avec Google
+            </button>
+            <button type="button" className="primary text-sm">
+              S'inscrire
+            </button>
           </div>
         </div>
       </div>

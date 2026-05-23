@@ -6,10 +6,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
-      <body className="min-h-full flex flex-col">
-        <div className="auth-container">
-          <div className="auth-left">
+
+      <div className="min-h-full flex flex-col">
+        <div className="flex flex-col md:flex-row m-bg-white h-screen ">
+          <div className="hidden md:flex flex-col items-center justify-center p-6 md:w-1/2 text-3xl text-center gap-6">
             <img src="/logo_1.png" className="logo" alt="logo"></img>
             <h2>Reprends ta recherche là où tu l'as laissée.</h2>
           </div>
@@ -19,7 +19,7 @@ export default function RootLayout({
           </a>
           {children}
         </div>
-      </body>
-    </html>
+      </div>
+
   );
 }

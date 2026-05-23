@@ -55,7 +55,4 @@ fastifyPassport.registerUserSerializer(async (user: any, request) => {
 fastifyPassport.registerUserDeserializer(async (id: number | string, request) => {
   return await prisma.user.findUnique({ where: { id: Number(id) } });
 });
-
-app.get("/users", async () => {
-  return prisma.user.findMany();
-})});
+});

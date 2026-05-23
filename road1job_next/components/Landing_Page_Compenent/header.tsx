@@ -1,6 +1,8 @@
+"use client";
 import NavBar from "./NavBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { TypeAnimation } from "react-type-animation";
 
 export default function Header() {
   return (
@@ -9,15 +11,29 @@ export default function Header() {
         <NavBar />
       </header>
 
-      <section className="hero">
-        <h1>Trouve ton chemin dans le développement</h1>
+      <section className="w-full h-screen flex flex-col items-center justify-center text-center gap-6 relative">
+        <TypeAnimation
+          sequence={[
+            'Trouve ton chemin dans le développement',
+            3000,
+            'Développe tes compétences',
+            3000,
+            'Accède à de nouvelles opportunités',
+            3000,
+            'Road1job, ton guide vers le succès professionnel',
+            3000,
+          ]}
+          wrapper="h1"
+          repeat={Infinity}
+          className="text-6xl font-bold mb-4"
+        />
 
-        <div className="search-box">
-          <form action="get" className="flex">
+        <div className="w-full md:w-1/2 lg:w-1/3 bg-[#2C1E4F] rounded-full p-6 flex items-center justify-center z-10">
+          <form action="get" className="flex justify-between items-center gap-2 w-full">
             <input
               type="text"
               placeholder="Cherchez un thème, un mot-clé, une entreprise..."
-              className="text-black"
+              className="text-white flex w-full rounded-full h-full bg-transparent focus:outline-none "
             ></input>
             <button type="submit" >
               {" "}

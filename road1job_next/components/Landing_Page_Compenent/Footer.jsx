@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
     <div>
-      <footer className="footer">
-        <div className="footer-content">
+      <footer className="footer p-10 bg-neutral text-neutral-content ">
+        <div className="footer-content max-w-7xl mx-auto grid md:grid-cols-3 gap-6 flex justify-between">
           <div className="footer-left">
             <img src="/logo_1.png" alt="logo"></img>
             <p className="site">road1job.com</p>

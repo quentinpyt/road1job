@@ -35,7 +35,7 @@ export default function ClientJobs() {
   };
   return (
     <>
-      <div className="offers-grid">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
         {jobs.slice(0, visible).map((job: job) => (
           <CardJob
             key={job.id}
@@ -51,7 +51,7 @@ export default function ClientJobs() {
       </div>
       {visible < jobs.length && (
         <button
-          className="mt-4 text-white font-bold underline cursor-pointer"
+          className="btn btn-primary mt-4 text-white font-bold  cursor-pointer"
           onClick={() => setVisible(visible + 3)}
         >
           Voir plus
@@ -60,9 +60,8 @@ export default function ClientJobs() {
       {visible >= jobs.length && (
         <a
           href="/Login"
-          className="mt-5 text-white font-bold underline cursor-pointer"
+          className="btn btn-primary mt-5 text-white mx-auto font-bold  cursor-pointer"
         >
-          <br></br>
           Connectez-vous pour accéder à toutes les offres !
         </a>
       )}

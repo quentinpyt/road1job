@@ -9,22 +9,20 @@ export default function Home() {
       <Header />
       <Article
         title="C'est quoi Road1Job ?"
-        text="Simplifiez votre recherche d'emploi grâce à une plateforme pensée pour les développeurs et les étudiants tech."
         sectionClass="articleRight"
         divClass="about-text"
         imgClass="about-img"
         imgSrc="/about.png"
         imgAlt="About Road1Job"
-      />
+      >Simplifiez votre recherche d'emploi grâce à une plateforme pensée pour les développeurs et les étudiants tech.</Article>
       <Article
         title="Un Dashboard évolutif et personnalisé"
-        text="Suivez votre dashboard dans votre endroit personnel et regardez avec quel entreprise vous matchez le mieux !"
         sectionClass="articleLeft"
         divClass="dashboard-text"
         imgClass="dashboard-img"
         imgSrc="/dashboard.png"
         imgAlt="Dashboard preview"
-      />
+      >Suivez votre dashboard dans votre endroit personnel et regardez avec quel entreprise vous matchez le mieux !</Article>
       <SectionJob />
       <Footer />
     </div>

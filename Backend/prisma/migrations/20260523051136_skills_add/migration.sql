@@ -35,8 +35,8 @@ CREATE TABLE "Analytics" (
     "applications" INTEGER NOT NULL DEFAULT 0,
     "applyBtnClicks" INTEGER NOT NULL DEFAULT 0,
     "atsApplications" INTEGER NOT NULL DEFAULT 0,
-    "cta" INTEGER NOT NULL DEFAULT 0,
-    "ctr" INTEGER NOT NULL DEFAULT 0,
+    "cta" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "ctr" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "remoteApplications" INTEGER NOT NULL DEFAULT 0,
     "totalApplications" INTEGER NOT NULL DEFAULT 0,
     "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -90,9 +90,6 @@ CREATE UNIQUE INDEX "GeoLocation_jobId_key" ON "GeoLocation"("jobId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Salary_jobId_key" ON "Salary"("jobId");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Skills_jobId_key" ON "Skills"("jobId");
 
 -- AddForeignKey
 ALTER TABLE "Analytics" ADD CONSTRAINT "Analytics_jobId_fkey" FOREIGN KEY ("jobId") REFERENCES "Job"("id") ON DELETE CASCADE ON UPDATE CASCADE;

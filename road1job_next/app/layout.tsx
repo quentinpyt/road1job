@@ -13,9 +13,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="fr" className={cn("font-sans", inter.variable)}
-    >
-      <body className="min-h-full flex flex-col">
+      lang="fr" data-scroll-behavior="smooth">
+      <body className={cn("min-h-full flex flex-col font-sans", inter.variable)}>
         {children}
         </body>
     </html>
