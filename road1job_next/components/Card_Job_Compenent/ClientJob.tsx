@@ -5,6 +5,7 @@ import CardJob from "./CardJob";
 import useJobs from "@/hooks/useJobs";
 import getTheJob from "@/app/api/getthejob";
 import { useRouter } from "next/navigation";
+
 export default function ClientJobs() {
   const [visible, setVisible] = useState(3);
   const jobs = useJobs();
@@ -32,20 +33,21 @@ export default function ClientJobs() {
     
     <>
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
-        {jobs.slice(0, visible).map((job: job) => (
+        {jobs.slice(0, visible).map((job) => (
           <CardJob
             key={job.id}
-            name={job.name}
+            name={job.title}
             company={job.company}
             skills={job.skills}
             salary={job.salary}
-            geolocation={job.geolocation}
-            job={job.experience}
+            geolocation={{ city: job.location.split(',')[0], country: job.location.split(',')[1] }}
+            job={job.level}
             type={job.type}
             id={job.id}
             onClick={() => router.push(`/job/${job.id}`)}
           />
         ))}
+
       </div>
       {visible < jobs.length && (
         <button

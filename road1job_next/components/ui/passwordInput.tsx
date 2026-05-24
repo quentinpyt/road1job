@@ -1,7 +1,17 @@
 
+type PasswordInputProps = {
+  value?: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  placeholder?: string;
+  name?: string;
+};
 
-
-export default function PasswordInput() {
+export default function PasswordInput({
+  value,
+  onChange,
+  placeholder = "Password",
+  name = "password",
+}: PasswordInputProps) {
     return(
     <div>
     <label className="input validator bg-white border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none">
@@ -21,11 +31,14 @@ export default function PasswordInput() {
           </svg>
           <input
             type="password"
+            name={name}
             required
-            placeholder="Password"
+            placeholder={placeholder}
             minLength ={8}
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
+            value={value}
+            onChange={onChange}
             className="bg-white focus:outline-none "
           />
         </label>

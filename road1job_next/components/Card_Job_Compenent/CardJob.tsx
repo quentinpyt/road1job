@@ -16,13 +16,18 @@ export default  function CardJob(props: any ,onClick?: () => void) {
         <p>Niveau : {props.level== null ? "Dev Junior" : props.level}</p>
         <p>Salaire : {props.salary?.min || "Non spécifié"} - {props.salary?.max || "Non spécifié"} {props.salary?.currency=="none" ? "" : props.salary?.currency}</p>
       </div>
-      <p className="p-2">Skills:</p>
-      <div className="flex  md:flex flex-wrap gap-2">
-        
-        {props.skills?.map((skill: any) => (
-          <span key={skill.id} className="badge badge-primary p-2">{skill.name}</span>
-        ))}
-      </div>
+      {props.skills && props.skills.length > 0 && (
+        <>
+          <p className="p-2">Skills:</p>
+          <div className="flex md:flex flex-wrap gap-2">
+            {props.skills.map((skill: any, index: number) => (
+              <span key={skill?.id ?? index} className="badge badge-primary p-2">
+                {typeof skill === "string" ? skill : skill?.name}
+              </span>
+            ))}
+          </div>
+        </>
+      )}
     </div>
     </div>)
 }

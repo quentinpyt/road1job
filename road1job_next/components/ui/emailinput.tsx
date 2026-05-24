@@ -1,7 +1,17 @@
 
+type EmailInputProps = {
+  value?: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  placeholder?: string;
+  name?: string;
+};
 
-
-export default function EmailInput() {
+export default function EmailInput({
+  value,
+  onChange,
+  placeholder = "mail@site.com",
+  name = "email",
+}: EmailInputProps) {
     return (
         <div>
         <label className="input validator bg-white border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none">
@@ -17,7 +27,12 @@ export default function EmailInput() {
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
             </g>
           </svg>
-          <input type="email" placeholder="mail@site.com" 
+          <input
+          type="email"
+          name={name}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
           className="bg-white focus:outline-none "
           required />
 

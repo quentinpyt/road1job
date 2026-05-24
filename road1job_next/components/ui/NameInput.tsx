@@ -1,7 +1,9 @@
 
-
 type Props = {
-    placeholder: string
+  placeholder: string;
+  value?: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  name?: string;
 };
 
 
@@ -23,8 +25,11 @@ export default function NameInput(props: Props) {
             </svg>
             <input
               type="text"
+              name={props.name}
               required
               placeholder={props.placeholder}
+              value={props.value}
+              onChange={props.onChange}
               pattern="[A-Za-z][A-Za-z0-9\-]*"
               minLength={3}
               maxLength={30}
