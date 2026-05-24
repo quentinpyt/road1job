@@ -1,5 +1,7 @@
 
 
+"use client"
+
 export default  function CardJob(props: any ,onClick?: () => void) {
     return(<div>
             <div className="card bg-primary shadow-xl p-6 cursor-pointer" onClick={props.onClick}>

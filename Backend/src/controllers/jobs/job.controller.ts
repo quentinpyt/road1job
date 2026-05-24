@@ -4,6 +4,7 @@ import {
   deleteJobById,
   findAllJobs,
   findJobById,
+  searchJobsByWord,
   updateJobById,
   type CreateJobInput,
   type UpdateJobInput,
@@ -13,12 +14,20 @@ type JobIdParams = {
   id: string;
 };
 
+type JobSearchQuery = {
+  word?: string;
+};
+
 export async function getAllJobsController(
-  _request: FastifyRequest,
+  request: FastifyRequest<{ Querystring: JobSearchQuery }>,
   reply: FastifyReply,
 ) {
   try {
-    const jobs = await findAllJobs();
+    const { word } = request.query;
+    const jobs = word
+      ? await searchJobsByWord({ word })
+      : await findAllJobs();
+
     return reply.send(jobs);
   } catch (error: any) {
     console.log("error get " + error.message);

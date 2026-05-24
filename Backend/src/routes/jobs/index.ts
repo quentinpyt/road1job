@@ -14,6 +14,7 @@ import {
 
 export default async function jobRoutes(app: FastifyInstance) {
   app.get("/getalljob", getAllJobsController);
+  app.get("/jobs/search", getAllJobsController);
   app.get("/jobs/:id", { preHandler: validateJobId }, getJobController);
   app.post("/jobs", { preHandler: validateCreateJobBody }, createJobController);
   app.put(

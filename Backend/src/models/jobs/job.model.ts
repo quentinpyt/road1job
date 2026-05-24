@@ -2,6 +2,7 @@ import { prisma } from "../../../lib/prisma";
 
 export type CreateJobInput = {
   name: string;
+  descriptionmini?: string;
   description: string;
   company: string;
   type: string;
@@ -9,6 +10,11 @@ export type CreateJobInput = {
 };
 
 export type UpdateJobInput = Partial<CreateJobInput>;
+
+export type SearchJobsInput = {
+  word: string;
+  limit?: number;
+};
 
 const jobListInclude = {
   salary: true,
@@ -30,6 +36,28 @@ export async function findAllJobs(limit = 12) {
   });
 }
 
+export async function searchJobsByWord({ word, limit = 12 }: SearchJobsInput) {
+  const normalizedWord = word.trim();
+
+  if (!normalizedWord) {
+    return findAllJobs(limit);
+  }
+
+  return prisma.job.findMany({
+    take: limit,
+    where: {
+      OR: [
+        { name: { contains: normalizedWord, mode: "insensitive" } },
+        { descriptionmini: { contains: normalizedWord, mode: "insensitive" } },
+        { description: { contains: normalizedWord, mode: "insensitive" } },
+        { company: { contains: normalizedWord, mode: "insensitive" } },
+        { type: { contains: normalizedWord, mode: "insensitive" } },
+      ],
+    },
+    include: jobListInclude,
+  });
+}
+
 export async function findJobById(id: number) {
   return prisma.job.findUnique({
     where: {
@@ -41,7 +69,10 @@ export async function findJobById(id: number) {
 
 export async function createJob(data: CreateJobInput) {
   return prisma.job.create({
-    data,
+    data: {
+      ...data,
+      descriptionmini: data.descriptionmini ?? data.description,
+    },
   });
 }
 

@@ -6,6 +6,7 @@ type JobIdParams = {
 
 type JobBody = {
   name?: string;
+  descriptionmini?: string;
   description?: string;
   company?: string;
   type?: string;

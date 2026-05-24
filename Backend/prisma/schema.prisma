@@ -30,6 +30,7 @@ model Job {
   company     String
   type        String
   experience  Int?
+  image       String?
   skills      Skills[]
   createdAt   DateTime     @default(now())
   analytics   Analytics?
