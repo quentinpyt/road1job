@@ -24,7 +24,7 @@ export function getAuthenticatedUserId(request: FastifyRequest) {
     try {
       const decoded = jwt.verify(
         token,
-        process.env.JWT_SECRET || "dev_secret",
+        process.env.JWT_SECRET!,
       ) as { id: number };
       userId = Number(decoded.id);
     } catch {

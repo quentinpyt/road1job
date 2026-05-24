@@ -100,6 +100,14 @@ export async function registerController(
 
     const jwtToken = buildAuthToken(user);
 
+    reply.cookie("token", jwtToken, {
+      httpOnly: true,
+      secure: false,
+      sameSite: "strict",
+      maxAge: 60 * 60 * 2,
+      path: "/",
+    });
+
     return reply.send({
       messageConnect: "Inscription is correct! Go check your mail now",
       token: jwtToken,
@@ -129,10 +137,18 @@ export async function googleCallbackController(
   const user = request.user as GoogleUser | undefined;
 
   if (!user) {
-    return reply.redirect(`${process.env.FRONTEND_URL}?error=google_auth_failed`);
+    return reply.redirect(`${process.env.FRONTEND_URL}/Login?error=google_auth_failed`);
   }
 
   const token = buildAuthToken(user);
 
-  return reply.redirect(`${process.env.FRONTEND_URL}/?token=${token}`);
+  reply.cookie("token", token, {
+    httpOnly: true,
+    secure: false,
+    sameSite: "strict",
+    maxAge: 60 * 60 * 2,
+    path: "/",
+  });
+
+  return reply.redirect(`${process.env.FRONTEND_URL}/dashboard`);
 }
