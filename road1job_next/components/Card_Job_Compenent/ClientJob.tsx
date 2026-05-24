@@ -2,20 +2,15 @@
 
 import { useState, useEffect } from "react";
 import CardJob from "./CardJob";
-import getAllJobs from "@/app/api/getalljobs";
-
+import useJobs from "@/hooks/useJobs";
+import getTheJob from "@/app/api/getthejob";
+import { useRouter } from "next/navigation";
 export default function ClientJobs() {
   const [visible, setVisible] = useState(3);
-  const [jobs, setJobs] = useState([]);
-
+  const jobs = useJobs();
+  const router = useRouter();
   // utilise useEffect pour récupérer les données des jobs depuis l'API lorsque le composant est monté
-  useEffect(() => {
-    async function fetchJobs() {
-      const data = await getAllJobs();
-      setJobs(data);
-    }
-    fetchJobs();
-  }, []);
+
 
   type job = {
     id: string;
@@ -34,6 +29,7 @@ export default function ClientJobs() {
     };
   };
   return (
+    
     <>
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
         {jobs.slice(0, visible).map((job: job) => (
@@ -46,6 +42,8 @@ export default function ClientJobs() {
             geolocation={job.geolocation}
             job={job.experience}
             type={job.type}
+            id={job.id}
+            onClick={() => router.push(`/job/${job.id}`)}
           />
         ))}
       </div>

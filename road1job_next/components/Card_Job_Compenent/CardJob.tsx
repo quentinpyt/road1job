@@ -1,8 +1,8 @@
 
 
-export default  function CardJob(props: any) {
+export default  function CardJob(props: any ,onClick?: () => void) {
     return(<div>
-            <div className="card bg-primary shadow-xl p-6">
+            <div className="card bg-primary shadow-xl p-6 cursor-pointer" onClick={props.onClick}>
       <h3 className="text-lg font-bold">{props.company}</h3>
       <div className="divider"></div>
 

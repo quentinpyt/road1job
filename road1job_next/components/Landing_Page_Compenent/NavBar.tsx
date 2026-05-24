@@ -4,16 +4,18 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
 
 
-
 export default function NavBar() {
   const router = useRouter();
   function goLoginPage(){
   
   router.push("/Login");
 }
+function goHomePage(){
+  router.push("/");
+}
   return (
     <div className="flex items-center  justify-between p-4 fixed w-full z-10 bg-[#1D152F]">
-      <div className="hidden md:flex w-10 h-10 flex items-center gap-1 ">
+      <div className="hidden md:flex w-10 h-10 flex items-center gap-1 cursor-pointer" onClick={goHomePage}>
         <img src="/logo_1.png" alt="logo"></img>
         <span>Road1Job</span>
       </div>
