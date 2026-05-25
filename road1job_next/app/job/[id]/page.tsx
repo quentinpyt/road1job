@@ -10,7 +10,7 @@ type props = {
 }
 
 
-export default async function Job({ params }: props) {0
+export default async function Job({ params }: props) {
     const {id} = await params;
     const job = await getTheJob(id);
     console.log(id);

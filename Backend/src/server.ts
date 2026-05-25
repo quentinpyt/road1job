@@ -14,8 +14,9 @@ import usersRoutes from "./routes/users";
 const app = Fastify();
 
 await app.register(cors, {
-  origin: process.env.FRONTEND_URL ,
+  origin: process.env.FRONTEND_URL,
   credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
 });
 
 await app.register(cookie);

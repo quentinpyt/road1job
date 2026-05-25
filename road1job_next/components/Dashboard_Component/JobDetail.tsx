@@ -1,9 +1,10 @@
 "use client"
 
 import { X } from "lucide-react"
+import { JobCompatibility } from "@/components/JobCompatibility"
 
 interface Job {
-  id: string
+  id: string | number
   title: string
   company: string
   location: string
@@ -41,6 +42,11 @@ export function JobDetail({ job, onClose }: JobDetailProps) {
       </div>
 
       <div className="p-8 space-y-8">
+        {/* Compatibilité */}
+        <section>
+          <JobCompatibility jobId={typeof job.id === 'string' ? parseInt(job.id) : job.id} />
+        </section>
+
         {/* Entreprise */}
         <section>
           <h3 className="text-lg font-semibold text-[var(--app-fg)] mb-2">Entreprise</h3>

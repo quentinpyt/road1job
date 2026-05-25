@@ -6,6 +6,7 @@ type ProfileUpdateBody = {
   surname?: string;
   age?: number;
   address?: string;
+  Skills?: string;
 };
 
 export function getAuthenticatedUserId(request: FastifyRequest) {
@@ -53,13 +54,14 @@ export async function validateProfileUpdateBody(
   request: FastifyRequest<{ Body: ProfileUpdateBody }>,
   reply: FastifyReply,
 ) {
-  const { name, surname, age, address } = request.body;
+  const { name, surname, age, address, Skills } = request.body;
 
   if (
     name === undefined &&
     surname === undefined &&
     age === undefined &&
-    address === undefined
+    address === undefined &&
+    Skills === undefined
   ) {
     return reply.status(400).send({
       success: false,

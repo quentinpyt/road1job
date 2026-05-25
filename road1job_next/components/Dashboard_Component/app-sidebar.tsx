@@ -38,7 +38,6 @@ import {
 export function AppSidebar() {
   const { state } = useSidebar();
   const [profile, setProfile] = useState<ProfileMe | null>(null);
-
   const navItems = [
     {
       title: "Jobs",
@@ -57,7 +56,7 @@ export function AppSidebar() {
 
   const settingsItems = [
     {
-      title: "Paramètres",
+      title: <a href="/settings">Paramètres</a>,
       icon: Settings,
     },
   ];

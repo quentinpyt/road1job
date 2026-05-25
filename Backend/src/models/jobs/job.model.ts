@@ -67,6 +67,26 @@ export async function findJobById(id: number) {
   });
 }
 
+export async function getAllSkills() {
+  const skills = await prisma.skills.findMany({
+    where: {
+      name: {
+        not: null,
+      },
+    },
+    select: {
+      id: true,
+      name: true,
+    },
+    distinct: ["name"],
+  });
+
+  return skills.filter((skill) => skill.name).map((skill) => ({
+    id: skill.id,
+    name: skill.name!,
+  }));
+}
+
 export async function createJob(data: CreateJobInput) {
   return prisma.job.create({
     data: {

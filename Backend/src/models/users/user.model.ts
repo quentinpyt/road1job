@@ -5,6 +5,7 @@ export type ProfileUpdateInput = {
   surname?: string;
   age?: number;
   address?: string;
+  Skills?: string;
 };
 
 export const userProfileSelect = {

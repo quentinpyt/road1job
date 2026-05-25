@@ -9,7 +9,7 @@ async function main() {
         name: item.title,
         company: item.smallCompany.companyName,
         descriptionmini: item.descriptionPreview,
-        description: String(await scrap(item.seoAlias)),
+        description: "lolilol", //String(await scrap(item.seoAlias)),
         type: item.title,
         image: item.smallCompany.handle,
         experience: item.requiredExperience,

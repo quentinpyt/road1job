@@ -6,6 +6,7 @@ import {
   findJobById,
   searchJobsByWord,
   updateJobById,
+  getAllSkills,
   type CreateJobInput,
   type UpdateJobInput,
 } from "../../models/jobs/job.model";
@@ -128,6 +129,27 @@ export async function deleteJobController(
     return reply.status(500).send({
       success: false,
       error: "Failed to delete job",
+    });
+  }
+}
+
+export async function getAvailableSkillsController(
+  _request: FastifyRequest,
+  reply: FastifyReply,
+) {
+  try {
+    const skills = await getAllSkills();
+
+    return reply.send({
+      success: true,
+      skills,
+    });
+  } catch (error: any) {
+    console.log("Get skills error:", error.message);
+
+    return reply.status(500).send({
+      success: false,
+      error: "Failed to retrieve skills",
     });
   }
 }
