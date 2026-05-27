@@ -13,6 +13,7 @@ RUN npm install
 # Copier tout le code
 COPY . .
 
+ARG DATABASE_URL
 # Générer Prisma client
 RUN npx prisma generate
 
