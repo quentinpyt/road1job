@@ -5,7 +5,6 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AppSidebar } from "@/components/Dashboard_Component/app-sidebar";
 import { SearchBar } from "@/components/Dashboard_Component/SearchBar";
-import { FilterTabs } from "@/components/Dashboard_Component/FilterTabs";
 import { JobList } from "@/components/Dashboard_Component/JobListColumn";
 import { JobDetail } from "@/components/Dashboard_Component/JobDetail";
 import BtnNight from "@/components/ui/btnNight";
@@ -57,7 +56,7 @@ export default function DashboardClient() {
 
               <div className="mt-6">
                 
-                <FilterTabs activeTab={activeTab} onTabChange={setActiveTab} />
+
               </div>
 
               <div className="mt-4 flex-1 min-h-0">

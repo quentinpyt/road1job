@@ -7,7 +7,6 @@ export default async function scrap(link) {
         const { data } = await axios.get(url)
         const htmldata = cheerio.load(data)
         const paragraphs = htmldata("p").map((i, el) => htmldata(el).text()).get()
-        console.log(paragraphs.join(" "))
         let param = paragraphs.join(" ")
         return param
     } catch (error) {

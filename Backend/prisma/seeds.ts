@@ -9,13 +9,12 @@ async function main() {
         name: item.title,
         company: item.smallCompany.companyName,
         descriptionmini: item.descriptionPreview,
-        description: "lolilol", //String(await scrap(item.seoAlias)),
+        description: "ok", //String(await scrap(item.seoAlias)),
         type: item.title,
         image: item.smallCompany.handle,
         experience: item.requiredExperience,
         skills: {
           create: (item.skillsList ?? []).map((skill: any) => {
-            console.log(skill);
             return {
               name: skill.name,
               value: skill.value,

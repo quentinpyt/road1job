@@ -6,6 +6,7 @@ import {
   getJobController,
   updateJobController,
   getAvailableSkillsController,
+  getTopSkillsController,
 } from "../../controllers/jobs/job.controller";
 import {
   validateCreateJobBody,
@@ -18,6 +19,7 @@ export default async function jobRoutes(app: FastifyInstance) {
   app.get("/getalljob", getAllJobsController);
   app.get("/jobs/search", getAllJobsController);
   app.get("/jobs/skills", getAvailableSkillsController);
+  app.get("/jobs/stats/top-skills", getTopSkillsController);
   app.get("/jobs/:id", { preHandler: validateJobId }, getJobController);
   app.get("/jobs/:jobId/compatibility", getJobCompatibilityController);
   app.post("/jobs", { preHandler: validateCreateJobBody }, createJobController);

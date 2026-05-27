@@ -112,3 +112,30 @@ export async function deleteJobById(id: number) {
     },
   });
 }
+
+export async function getTopSkills(limit = 20) {
+  const skills = await prisma.skills.groupBy({
+    by: ["name"],
+    _count: {
+      id: true,
+    },
+    orderBy: {
+      _count: {
+        id: "desc",
+      },
+    },
+    take: limit,
+    where: {
+      name: {
+        not: null,
+      },
+    },
+  });
+
+  return skills
+    .filter((skill) => skill.name)
+    .map((skill) => ({
+      name: skill.name!,
+      count: skill._count.id,
+    }));
+}

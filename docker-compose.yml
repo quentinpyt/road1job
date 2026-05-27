@@ -11,8 +11,6 @@ services:
       build: ./ai-service
       ports:
         - "3002:3002"
-      environment:
-        - PYTHONUNBUFFERED=1
   backend:
       build: ./Backend
       ports:

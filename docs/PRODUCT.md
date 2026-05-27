@@ -214,7 +214,8 @@ Save to favorites OR apply (external redirect)
 - **Pain**: Overwhelmed by job choices, unsure if qualified
 - **Solution**: AI match score helps confidence
 - **Value**: Saved time vs 5 job boards
-
+      environment:
+        - PYTHONUNBUFFERED=1
 ### Persona 2: Senior Dev (Passive User)
 - **Age**: 30-40
 - **Experience**: 5-15 years

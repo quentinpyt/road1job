@@ -1,17 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import getProfileMe, { type ProfileMe } from "@/app/api/profileme";
 import ProfileImage from "@/public/logo_1.png";
 import {
   Briefcase,
   Settings,
-  Heart,
-  MapPin,
+  ChartLine,
   LogOut,
   ChevronDown,
-  Home,
-  MoreHorizontal,
 } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import {
@@ -22,9 +20,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
   SidebarSeparator,
   useSidebar,
 } from "@/components/ui/sidebar";
@@ -37,27 +32,27 @@ import {
 
 export function AppSidebar() {
   const { state } = useSidebar();
+  const pathname = usePathname();
   const [profile, setProfile] = useState<ProfileMe | null>(null);
+
   const navItems = [
     {
       title: "Jobs",
       icon: Briefcase,
-      active: true,
+      href: "/dashboard",
     },
     {
-      title: "Favoris",
-      icon: Heart,
-    },
-    {
-      title: "Map",
-      icon: MapPin,
-    },
+      title: "Statistiques",
+      icon: ChartLine,
+      href: "/statistics",
+    }
   ];
 
   const settingsItems = [
     {
-      title: <a href="/settings">Paramètres</a>,
+      title: "Paramètres",
       icon: Settings,
+      href: "/settings",
     },
   ];
 
@@ -104,21 +99,25 @@ export function AppSidebar() {
 
       <SidebarContent className="flex flex-col justify-between">
         <SidebarMenu className="space-y-3">
-          {navItems.map((item) => (
-            <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton
-                asChild
-                tooltip={item.title}
-                isActive={item.active}
-                className={`h-14 text-base ${item.active ? "bg-[#4f46e5]/10 text-[#4f46e5]" : ""}`}
-              >
-                  <a href="#" className="flex items-center gap-4 px-4">
+          {navItems.map((item) => {
+            const isActive = pathname.startsWith(item.href.split('/')[1] === '' ? '/' : `/${item.href.split('/')[1]}`);
+
+            return (
+              <SidebarMenuItem key={item.title}>
+                <SidebarMenuButton
+                  asChild
+                  tooltip={item.title}
+                  isActive={isActive}
+                  className={`h-14 text-base ${isActive ? "bg-[#4f46e5]/10 text-[#4f46e5]" : ""}`}
+                >
+                  <a href={item.href} className="flex items-center gap-4 px-4">
                     <item.icon className="h-6 w-6 text-[var(--app-fg)]" />
                     <span className="flex-1 font-medium text-[var(--app-fg)]">{item.title}</span>
                   </a>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            );
+          })}
         </SidebarMenu>
 
         <div className="border-t pt-4">
@@ -127,7 +126,7 @@ export function AppSidebar() {
               {settingsItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild tooltip={item.title}>
-                      <a href="#" className="flex items-center gap-2">
+                      <a href={item.href} className="flex items-center gap-2">
                         <item.icon className="h-4 w-4 text-[var(--app-fg)]" />
                         <span className="text-[var(--app-fg)]">{item.title}</span>
                       </a>

@@ -7,6 +7,7 @@ import {
   searchJobsByWord,
   updateJobById,
   getAllSkills,
+  getTopSkills,
   type CreateJobInput,
   type UpdateJobInput,
 } from "../../models/jobs/job.model";
@@ -150,6 +151,27 @@ export async function getAvailableSkillsController(
     return reply.status(500).send({
       success: false,
       error: "Failed to retrieve skills",
+    });
+  }
+}
+
+export async function getTopSkillsController(
+  _request: FastifyRequest,
+  reply: FastifyReply,
+) {
+  try {
+    const skills = await getTopSkills();
+
+    return reply.send({
+      success: true,
+      skills,
+    });
+  } catch (error: any) {
+    console.log("Get top skills error:", error.message);
+
+    return reply.status(500).send({
+      success: false,
+      error: "Failed to retrieve top skills",
     });
   }
 }

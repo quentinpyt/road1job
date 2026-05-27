@@ -3,6 +3,12 @@ export type ProfileMe = {
   email: string;
   name: string | null;
   surname: string | null;
+  age?: number | null;
+  address?: string | null;
+  Schools?: string | null;
+  Projects?: string | null;
+  Technologies?: string | null;
+  Skills?: string | null;
 };
 
 export default async function getProfileMe() {

@@ -21,7 +21,7 @@ function buildAuthToken(user: GoogleUser) {
       name: user.name,
       surname: user.surname,
     },
-    process.env.JWT_SECRET || "dev_secret",
+    process.env.JWT_SECRET!,
     { expiresIn: "2h" },
   );
 }
