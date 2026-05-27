@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx prisma migrate deploy && npx tsx prisma/seeds.ts && npx tsx src/server.ts"
+    "dev": "npx tsx src/server.ts"
   },
   "dependencies": {
     "@fastify/cookie": "^11.0.2",
